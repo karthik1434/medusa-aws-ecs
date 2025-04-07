@@ -35,7 +35,7 @@ jobs:
           docker build -t medusa -f Dockerfile ..
           docker tag medusa:latest 657506130511.dkr.ecr.ap-south-1.amazonaws.com/medusa:latest
           docker push 657506130511.dkr.ecr.ap-south-1.amazonaws.com/medusa:latest
-          cd terraform
+          cd ..
       # 5. Terraform Setup & Apply
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
@@ -43,19 +43,6 @@ jobs:
       - name: Terraform Init
         run: |
           cd terraform
-          terraform init
+          terraform destroy
 
-      - name: Terraform Apply
-        run: |
-          cd terraform
-          terraform apply -auto-approve
-        env:
-          TF_VAR_ecr_image_url: 657506130511.dkr.ecr.ap-south-1.amazonaws.com/medusa:latest
-
-      # 6. Force ECS Service Update (if not using Terraform for service management)
-      - name: Update ECS Service
-        run: |
-          aws ecs update-service \
-            --cluster medusa-cluster \
-            --service medusa-service \
-            --force-new-deployment
+      
