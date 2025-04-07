@@ -26,7 +26,7 @@ jobs:
 
     - name: Build & Push Docker Image
       run: |
-        docker build -t medusa .
+        docker build -t medusa -f docker/Dockerfile .
         docker tag medusa:latest 657506130511.dkr.ecr.ap-south-1.amazonaws.com/medusa:latest
         docker push 657506130511.dkr.ecr.ap-south-1.amazonaws.com/medusa:latest
 
