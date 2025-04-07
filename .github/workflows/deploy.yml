@@ -47,8 +47,7 @@ jobs:
           terraform init
           terraform destroy -auto-approve
           terraform apply -auto-approve
-        env:
-          TF_VAR_ecr_image_url: 657506130511.dkr.ecr.ap-south-1.amazonaws.com/medusa:latest
+        
 
       # 6. Force ECS Service Update (if not using Terraform for service management)
       - name: Update ECS Service
@@ -57,3 +56,6 @@ jobs:
             --cluster medusa-cluster \
             --service medusa-service \
             --force-new-deployment
+      - name: Terraform Init
+        run: |
+          terraform destroy
