@@ -1,0 +1,13 @@
+{
+  "name": "medusa-app",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "dependencies": {
+    "@medusajs/medusa": "1.8.0",
+    "typeorm": "0.3.11",
+    "medusa-fulfillment-manual": "1.1.31",
+    "medusa-payment-stripe": "1.1.31",
+    "pg": "8.11.3"
+  }
+}
