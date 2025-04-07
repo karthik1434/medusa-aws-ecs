@@ -36,3 +36,4 @@ jobs:
           --cluster medusa-cluster \
           --service medusa-service \
           --force-new-deployment
+# just for test
