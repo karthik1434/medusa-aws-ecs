@@ -45,7 +45,6 @@ jobs:
         run: |
           cd terraform
           terraform init
-          terraform destroy -auto-approve
           terraform apply -auto-approve
         
 
@@ -56,6 +55,8 @@ jobs:
             --cluster medusa-cluster \
             --service medusa-service \
             --force-new-deployment
-      - name: Terraform Init
+
+
+      - name: Terraform destroy
         run: |
-          terraform destroy
+          terraform destroy -auto-approve
