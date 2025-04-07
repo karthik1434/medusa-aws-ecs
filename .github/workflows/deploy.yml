@@ -35,7 +35,7 @@ jobs:
           docker build -t medusa -f Dockerfile ..
           docker tag medusa:latest 657506130511.dkr.ecr.ap-south-1.amazonaws.com/medusa:latest
           docker push 657506130511.dkr.ecr.ap-south-1.amazonaws.com/medusa:latest
-          cd ..
+          cd terraform
       # 5. Terraform Setup & Apply
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
